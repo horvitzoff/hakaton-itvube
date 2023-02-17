@@ -1,10 +1,8 @@
 # -*- coding: cp1251 -*-
 from loader import dp
 from aiogram import types
-from bs4 import BeautifulSoup
-from requests import get
 from utils.clean_message import clean_message
-import utils.keyboards as kb
+import inlines.keyboards as kb
 
 @dp.message_handler(content_types=['text'])
 async def start(message: types.Message):
