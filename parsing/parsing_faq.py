@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 from requests import get
 from data.const import Urls
 import json
+import asyncio
+import os
 
 def pars():
     soup = BeautifulSoup(get(Urls.url_faq).text,features="lxml")
@@ -14,10 +16,15 @@ def pars():
             title = section[x].find('span').text
             text = section[x].find('div').text
             slovar[title] = text
-    with open("/json/data_file.json", "w",encoding='utf8') as write_file:
+    with open("D:\Desktop\hakaton-itvube\parsing\json\data_file.json", "w+",encoding='utf8') as write_file:
         json.dump(slovar, write_file,ensure_ascii=False)
 
-def parsing():
-    while True:
-        pars()
-        time.sleep(86400)
+
+async def parsing():
+    try:
+        while True:
+            pars()
+            print('Pasr')
+            time.sleep(86400)
+    except:
+        print('Не удаётся получить доступ к сайту')
