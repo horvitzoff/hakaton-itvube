@@ -7,7 +7,7 @@ import json
 
 @dp.message_handler(content_types=['text'])
 async def start(message: types.Message):
-    with open("D:\Desktop\hakaton-itvube\parsing\json\data_file.json", "r",encoding='utf8') as read_file:
+    with open("parsing/json/data_file.json", "r",encoding='utf8') as read_file:
         data = json.load(read_file)
 
     answer = []
