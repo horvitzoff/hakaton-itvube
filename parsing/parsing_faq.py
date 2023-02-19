@@ -1,5 +1,6 @@
 import time
 from bs4 import BeautifulSoup
+from loader import dp
 from requests import get
 from data.const import Urls
 import json
@@ -18,7 +19,7 @@ async def pars():
             title = section[x].find('span').text
             text = section[x].find('div').text
             slovar[title] = text
-    with open("D:\Desktop\hakaton-itvube\parsing\json\data_file.json", "w+", encoding='utf8') as write_file:
+    with open("parsing/json/data_file.json", "w+", encoding='utf8') as write_file:
         json.dump(slovar, write_file, ensure_ascii=False)
 
 
