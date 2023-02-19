@@ -7,6 +7,10 @@ async def on_startup(dp):
 
     await set_default_commands(dp)
 
+    import asyncio
+    from parsing.parsing_faq import parsing
+    asyncio.create_task(parsing())
+
 
 if __name__ == '__main__':
     from aiogram import executor
